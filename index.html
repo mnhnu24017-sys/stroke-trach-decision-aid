@@ -9,21 +9,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f6f1e8;
-    --paper: #fbf7ef;
-    --ink: #2b2622;
-    --ink-soft: #564e47;
-    --ink-muted: #8b8278;
-    --rule: #e3dbcb;
-    --rule-soft: #ece4d2;
-    --accent: #4a7a6b;         /* muted teal, from illustration strap */
-    --accent-soft: #e2ecE6;
-    --accent-ink: #2f5145;
-    --amber: #b47a3a;          /* warm highlight */
-    --amber-soft: #f3e6d0;
-    --rose: #a85c55;
-    --rose-soft: #f2dbd7;
-    --shadow: 0 1px 2px rgba(43,38,34,0.04), 0 8px 28px -12px rgba(43,38,34,0.14);
+    --bg: #eaf0f4;             /* calm cool blue-grey */
+    --paper: #fbfdfe;
+    --ink: #233039;
+    --ink-soft: #475561;
+    --ink-muted: #7c8893;
+    --rule: #dce5ec;
+    --rule-soft: #e8eef3;
+    --accent: #3f78a6;         /* calm medical blue */
+    --accent-soft: #e3eef6;
+    --accent-ink: #2a557a;
+    --amber: #b07a36;          /* warm highlight for stories */
+    --amber-soft: #f3e7d1;
+    --rose: #ab5a55;
+    --rose-soft: #f2dcd8;
+    --shadow: 0 1px 2px rgba(35,48,57,0.04), 0 8px 28px -12px rgba(35,48,57,0.16);
     --radius: 14px;
   }
   * { box-sizing: border-box; }
@@ -51,7 +51,7 @@
   }
   .topbar {
     position: sticky; top: 0; z-index: 20;
-    background: rgba(246,241,232,0.92);
+    background: rgba(234,240,244,0.92);
     backdrop-filter: saturate(1.1) blur(8px);
     border-bottom: 1px solid var(--rule);
   }
@@ -505,7 +505,7 @@
   /* navigation footer */
   .navbar {
     position: fixed; bottom: 0; left: 0; right: 0;
-    background: rgba(246,241,232,0.95);
+    background: rgba(234,240,244,0.95);
     backdrop-filter: saturate(1.1) blur(8px);
     border-top: 1px solid var(--rule);
     padding: 14px 28px;
@@ -554,7 +554,7 @@
   /* TOC overlay */
   .toc-overlay {
     position: fixed; inset: 0;
-    background: rgba(43,38,34,0.4);
+    background: rgba(35,48,57,0.45);
     backdrop-filter: blur(2px);
     z-index: 50;
     display: grid; place-items: center;

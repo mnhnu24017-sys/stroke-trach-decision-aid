@@ -1,4 +1,4 @@
-// Content pages (1..N) for the decision aid.
+// Content pages for the decision aid (v2 — 函询后修改版).
 // Each page is a React component rendered inside <Page>.
 // Pages receive { state, update } for persisting user choices.
 
@@ -91,11 +91,12 @@ function PageWhy() {
       <span className="eyebrow">第一部分 · 认识您的处境</span>
       <h1 className="page-title">为什么会面临这个决定？</h1>
       <p style={{marginTop:22}}>您的家人因为脑卒中（也叫中风）住进了医院。脑卒中会影响大脑控制身体的能力，有时候会让人暂时无法自己呼吸。</p>
-      <p>现在，您的家人正在通过一根插在嘴里的管子（叫<b>气管插管</b>）连接呼吸机，帮助他呼吸。但这根管子不能在嘴里放太久，时间长了会损伤喉咙和嘴巴。</p>
+      <p>现在，您的家人正在通过一根插在嘴里的管子（叫<b>气管插管</b>）连接呼吸机，帮助他呼吸。<b>这是抢救时常用、也很有效的办法。</b>但这根管子不能在嘴里放太久，时间一长，容易损伤口腔和咽喉，也更容易引起感染。因此，它<b>不能长期留置</b>。根据国内指南，如果插管放置超过两周左右仍无法拔除，或者几次试着拔管都没能成功，医生通常就会考虑改做<b>气管切开</b>；具体到您的家人，还要由医生结合病情来判断。</p>
+      <p>如果到了这个时间，您的家人仍然不能自己呼吸，通常会面临<b>两种选择</b>：一种是继续保留或反复更换嘴里的插管，但这会增加损伤和感染的风险；另一种是做<b>气管切开</b>——在颈部下方开一个小口，把呼吸管换到那里，这样可以更安全、对口腔咽喉损伤更小地帮助他呼吸更长时间。</p>
       <div className="callout">
-        这种情况并不少见——大约<b>每三到五位</b>重症脑卒中患者中，就有一位需要考虑气管切开。
+        <b>"能不能在短期内脱离呼吸机、拔掉管子"</b>，是医生判断要不要建议气管切开时最重要的依据。
       </div>
-      <p>如果医生判断您的家人短期内还不能自己呼吸，就会建议做<b>气管切开手术</b>——在脖子上开一个小口，把呼吸管换到那里，这样可以更安全地帮助他呼吸更长时间。</p>
+      <p>需要面对这个选择的家庭并不少见——像您家人这样因重症脑卒中、需要较长时间依靠呼吸机的患者，有相当一部分最终都需要考虑气管切开。</p>
 
       <div className="fig">
         <img src="assets/compare.png" alt="口腔插管与气管切开对比图"/>
@@ -115,11 +116,11 @@ function PageYourRole() {
       <h1 className="page-title">为什么需要您来做这个决定？</h1>
       <p style={{marginTop:22}}>因为脑卒中的影响，您的家人现在可能无法清醒地表达自己的想法。在这种情况下，最了解他、最关心他的人——也就是<b>您</b>——需要帮助他做出这个决定。</p>
       <div className="callout" style={{fontSize:17, lineHeight:1.85}}>
-        这不是要您替他决定生或死，而是要您站在他的角度，想一想：<br/>
+        这不是要您替他决定生或死，<b>也不是把责任压在您一个人身上</b>。而是要您站在他的角度，想一想：<br/>
         <span style={{fontFamily:'"Noto Serif SC", serif', fontSize:19, color:'var(--accent-ink)'}}>「如果他能说话，他会希望怎么做？」</span>
       </div>
-      <p>您是在帮他<b>表达他的意愿</b>，而不是在替他做主。这是一件充满爱的事情。</p>
-      <p>如果您不太确定他会怎么想，也没关系。后面的内容会帮您一步一步地回忆和思考。</p>
+      <p>也就是说，您是在帮他<b>把心里的意愿表达出来</b>。这是一件充满爱的事情。</p>
+      <p>如果您一时想不起他会怎么想，也完全没关系。很多人平时并不会和家人谈起这些。这时您可以换一个角度：<b>以他一贯的为人、性格和生活态度，什么样的安排对他来说是最好的、最能让他舒适和有尊严的？</b>您不需要找出一个"标准答案"，只要尽力替他着想就好。后面的内容，会一步步陪您一起回想和体会。</p>
 
       <h2 className="section-title">您有时间慢慢考虑</h2>
       <p>这个决定很重要，但在大多数情况下，您<b>不需要在几分钟内</b>就做出选择。具体有多少时间来考虑，取决于患者的病情——请直接问医生：</p>
@@ -143,9 +144,11 @@ function PageSelfCheck({ state, update }) {
     { k:'q1', label:'我对气管切开这件事了解吗？', opts:['很了解','有一些了解','不太了解','完全不了解'] },
     { k:'q2', label:'我知道各个选项的好处和风险吗？', opts:['清楚','大概知道','不太清楚','完全不知道'] },
     { k:'q3', label:'我清楚家人可能会希望怎么做吗？', opts:['清楚','大概知道','不太清楚','完全不知道'] },
+    { k:'q3b', label:'家里人对这个决定的看法一致吗？', opts:['比较一致','大致一致','有些分歧','还没和家人商量'] },
     { k:'q4', label:'我对做这个决定感到有压力吗？', opts:['非常有压力','有一些压力','压力不大','没有压力'] },
     { k:'q5', label:'我担心做出让自己后悔的决定吗？', opts:['非常担心','有些担心','不太担心','不担心'] },
     { k:'q6', label:'我觉得现在的信息太多，需要时间消化吗？', opts:['非常需要','有一些','还好','不需要'] },
+    { k:'q7', label:'做这个决定时，我希望怎么参与？', opts:['自己（和家人）拿主意、医生提供信息','和医疗团队一起商量着定','主要参考医生的建议来定'] },
   ];
   return (
     <div className="page">
@@ -174,13 +177,23 @@ function PageStroke() {
     <div className="page">
       <span className="eyebrow">第二部分 · 了解气管切开</span>
       <h1 className="page-title">什么是脑卒中？</h1>
-      <p style={{marginTop:22}}>脑卒中，老百姓常说的<b>中风</b>，是因为大脑的血管出了问题——要么是<b>血管堵住了</b>（脑梗死），要么是<b>血管破裂出血了</b>（脑出血）。</p>
-      <p>大脑是我们身体的指挥中心，控制着我们的思考、说话、活动，也控制着呼吸。当脑卒中比较严重时，大脑可能暂时无法正常指挥身体，患者可能会：</p>
+      <p style={{marginTop:22}}>脑卒中，也就是老百姓常说的<b>中风</b>，是大脑的血管出了问题。根据《中国重症卒中管理指南 2024》，重症脑卒中分为三类：</p>
+      <div className="qa-card"><div className="q" style={{color:'var(--accent-ink)'}}>脑梗死（缺血性卒中）</div>
+        <p style={{margin:0, fontSize:15, color:'var(--ink-soft)'}}>脑血管被堵住、脑组织缺血缺氧</p></div>
+      <div className="qa-card"><div className="q" style={{color:'var(--accent-ink)'}}>脑出血</div>
+        <p style={{margin:0, fontSize:15, color:'var(--ink-soft)'}}>脑内血管破裂出血</p></div>
+      <div className="qa-card"><div className="q" style={{color:'var(--accent-ink)'}}>蛛网膜下腔出血</div>
+        <p style={{margin:0, fontSize:15, color:'var(--ink-soft)'}}>脑表面血管破裂，血液流入大脑表面的间隙</p></div>
+      <p style={{fontSize:14.5, color:'var(--ink-muted)'}}>后两类合称<b>"出血性脑卒中"</b>。</p>
+
+      <p style={{marginTop:18}}>大脑是我们身体的指挥中心，控制着我们的思考、说话、活动，也控制着呼吸。当脑卒中比较严重时，大脑可能暂时无法正常指挥身体，患者可能会：</p>
       <ul className="check-list" style={{pointerEvents:'none'}}>
         <li className="on"><span className="check-box"/><span>意识不清醒，无法说话或回应</span></li>
         <li className="on"><span className="check-box"/><span>无法自己呼吸，需要呼吸机帮助</span></li>
         <li className="on"><span className="check-box"/><span>吞咽困难，无法自己吃东西</span></li>
       </ul>
+      <p style={{color:'var(--ink)'}}>正是因为暂时<b>"无法自己呼吸"</b>，您的家人才需要靠呼吸机帮助，也才会面临是否做气管切开的选择。</p>
+
       <div className="callout">
         大脑有一定的<b>恢复能力</b>。有些患者经过治疗和康复，可以逐渐恢复一部分功能。但恢复需要时间，每个人的情况也不一样——有的人恢复得多一些，有的人恢复得少一些，也有的人可能很难恢复。医生会根据您家人的具体情况来判断。
       </div>
@@ -198,7 +211,7 @@ function PageWhatIsTrach() {
         <img src="assets/anatomy.png" alt="气管切开示意图" style={{maxHeight:360}}/>
         <div className="fig-caption">图 2：气管切开示意图</div>
       </div>
-      <p style={{marginTop:18}}>气管切开是一个小手术。医生会在脖子前面靠下的位置开一个<b>小切口</b>（大约2-3厘米），然后在气管（就是我们呼吸时空气经过的管道）上开一个小孔，放入一根短管子。这根管子可以连接呼吸机，帮助患者呼吸。</p>
+      <p style={{marginTop:18}}>气管切开是一个小手术。医生会在脖子前面靠下的位置开一个<b>小切口</b>（大约 2-3 厘米），然后在气管（就是我们呼吸时空气经过的管道）上开一个小孔，放入一根短管子。这根管子可以连接呼吸机，帮助患者呼吸。</p>
 
       <h3 className="sub-title">关于手术方式</h3>
       <p>气管切开有两种做法——<b>传统的外科切开</b>和<b>经皮穿刺扩张</b>。经皮穿刺扩张是目前比较常用的方式，切口更小。医生会根据患者的具体情况选择最合适的方式，您不需要为此做选择。</p>
@@ -228,9 +241,9 @@ function PageOptions() {
 
       <div className="option-card B">
         <span className="opt-label">选项 B</span>
-        <h4>气管切开 + 设定观察期</h4>
-        <p>先进行气管切开，同时和医疗团队约定一个<b>观察期限</b>。在这段时间里积极治疗和康复，定期评估病情变化。如果观察期结束后没有明显好转，再和医疗团队讨论下一步方案。</p>
-        <p style={{marginTop:8}}>观察期的长短由您和医生共同商定。这个选项让您有机会<b>"先试一试"</b>，同时为后续决定留有余地。</p>
+        <h4>先做气管切开，并约定一个评估期</h4>
+        <p>先进行气管切开，同时和医疗团队<b>预先约定一个评估时间点</b>。在这段时间里积极治疗和康复；到了约定的时间，再一起评估病情：如果有好转，就继续治疗；如果没有明显好转，再和医疗团队讨论下一步——比如继续治疗，或把重点转向让患者尽量舒适。</p>
+        <p style={{marginTop:8}}>评估期的长短由您和医生共同商定。这个选项让您<b>"先争取一段时间观察"</b>，又不必现在就做长远的承诺。</p>
       </div>
 
       <div className="option-card C">
@@ -256,8 +269,10 @@ function PageProsCons() {
           <h4><span className="dot"/>气管切开的好处</h4>
           <ul>
             <li>解除嘴里管子对口腔、喉咙的长期压迫</li>
-            <li>方便清理呼吸道的痰液</li>
-            <li>可能降低肺部感染的机会</li>
+            <li>便于清理呼吸道的痰液，气道管理更顺畅</li>
+            <li>有助于排痰，部分患者可减少肺部感染的机会</li>
+            <li>有助于维持稳定的供氧</li>
+            <li>通常可以减少镇静药物的使用</li>
             <li>患者更容易进行康复锻炼</li>
             <li>病情稳定后可能更早离开 ICU</li>
           </ul>
@@ -265,43 +280,49 @@ function PageProsCons() {
         <div className="pc-col cons">
           <h4><span className="dot"/>气管切开的风险</h4>
           <ul>
-            <li>手术本身的风险：出血、感染等</li>
+            <li>手术本身的风险：出血、感染等，总体发生率较低</li>
             <li>脖子上会有一个切口，需要每天护理</li>
-            <li>初期无法正常说话</li>
+            <li>初期因空气不经过声带，暂时无法正常说话</li>
             <li>少数人可能出现气管狭窄等远期并发症</li>
-            <li>不能保证患者一定能恢复</li>
+            <li>气管切开不能直接决定神经功能能否恢复，恢复主要取决于脑卒中本身的严重程度</li>
           </ul>
         </div>
       </div>
 
       <h2 className="section-title">如果用数字来看</h2>
       <div className="callout amber" style={{marginTop:6}}>
-        以下数据来自多项研究，是一个<b>大致范围</b>。您家人的实际情况可能与此不同，请向医生确认。
+        以下数据来自多项研究，是一个<b>大致范围</b>。您家人的实际情况可能与此不同，请以<b>医生的判断</b>为准。
       </div>
 
       <div className="stat">
-        <div className="stat-top"><span className="stat-label">切口局部感染</span><span className="stat-val">约 5% – 6%</span></div>
-        <div className="stat-bar"><span style={{width:'6%'}}/></div>
+        <div className="stat-top"><span className="stat-label">手术相关并发症（出血、伤口感染等）</span><span className="stat-val">约 3% – 7%</span></div>
+        <div className="stat-bar"><span style={{width:'7%'}}/></div>
       </div>
       <div className="stat">
-        <div className="stat-top"><span className="stat-label">远期并发症（气管狭窄等）</span><span className="stat-val">约 14% – 45%</span></div>
+        <div className="stat-top"><span className="stat-label">肺部感染（较常见）</span><span className="stat-val">约 30%</span></div>
         <div className="stat-bar"><span style={{width:'30%'}}/></div>
+      </div>
+      <div className="stat">
+        <div className="stat-top"><span className="stat-label">需要处理的明显气管狭窄</span><span className="stat-val">约 3% – 12%</span></div>
+        <div className="stat-bar"><span style={{width:'12%'}}/></div>
+      </div>
+      <div className="stat">
+        <div className="stat-top"><span className="stat-label">气管食管瘘等严重并发症</span><span className="stat-val">不到 1%</span></div>
+        <div className="stat-bar"><span style={{width:'2%'}}/></div>
       </div>
       <div className="stat">
         <div className="stat-top"><span className="stat-label">病情好转后成功拔管</span><span className="stat-val">约 60%</span></div>
         <div className="stat-bar"><span style={{width:'60%'}}/></div>
       </div>
-      <div className="stat">
-        <div className="stat-top"><span className="stat-label">无肺部感染者 · 拔管时间</span><span className="stat-val">约 3 周</span></div>
-        <div className="stat-bar"><span style={{width:'35%'}}/></div>
-      </div>
-      <div className="stat">
-        <div className="stat-top"><span className="stat-label">有肺部感染者 · 拔管时间</span><span className="stat-val">5 – 6 周或更久</span></div>
-        <div className="stat-bar"><span style={{width:'65%'}}/></div>
-      </div>
+      <p style={{fontSize:13, color:'var(--ink-muted)', marginTop:6}}>
+        关于气管狭窄：有些研究报告的比例更高，但那多半是没有症状、只在影像上看到的轻微狭窄，并不是真正需要治疗的问题。
+      </p>
 
-      <div className="callout" style={{marginTop:20}}>
-        <b>关于死亡风险：</b>气管切开本身导致死亡的风险很低。患者的生存情况主要取决于脑卒中本身的严重程度，而不是气管切开手术。
+      <div className="callout" style={{marginTop:16}}>
+        <b>关于拔管时间：</b>没有肺部感染的患者通常更快（约 3 周左右）；有肺部感染的可能需要 5 – 6 周或更久。
+      </div>
+      <div className="callout" style={{marginTop:12}}>
+        <b>关于死亡风险：</b>气管切开手术本身导致死亡的风险很低。患者能否度过难关，主要取决于脑卒中本身的严重程度，而不是这个手术。
       </div>
     </div>
   );
@@ -311,12 +332,14 @@ function PageProsCons() {
 function PageFAQ() {
   const FAQ = [
     ['气管切开手术疼吗？', '手术是在麻醉下进行的，患者不会感到疼痛。术后可能会有一些不适，医生会给予适当的处理。'],
-    ['气管切开后还能说话吗？', '刚做完时因为空气不经过声带，无法正常说话。但随着病情恢复，部分患者可以通过特殊的说话装置恢复语言交流。'],
-    ['气管切开后还能吃东西吗？', '这取决于患者的吞咽功能恢复情况。有些患者可以慢慢恢复经口吃饭，有些可能需要通过管子来进食。医生会根据具体情况评估。'],
+    ['气管切开后还能说话吗？', '刚做完时，因为空气不经过声带，暂时无法正常说话。等病情稳定、患者清醒且有交流需求时，经医生和言语/呼吸治疗师评估后，可以佩戴"说话瓣膜（语音阀）"帮助恢复发声；如果不适合用说话瓣膜，还有气囊上发声、开窗套管等其他办法。'],
+    ['气管切开后还能吃东西吗？', '这取决于患者吞咽功能的恢复情况。有些患者可以慢慢恢复经口进食，有些可能需要通过管子来进食。医生会根据具体情况评估。'],
+    ['气管切开管需要更换吗？', '气切套管有不同的型号和材质，长期留置时需要定期更换：塑料套管通常一个月左右换一次，金属套管一般不超过 90 天，由医生完成，目的是保持清洁、减少痰痂和感染风险。这属于常规操作，您不必担心。出院前，护士会教您日常护理的要点。'],
     ['气管切开后能出院吗？', '可以的。当患者病情稳定后，即使还带着气管切开管，也可以出院。出院前，护士会教您怎么在家护理。'],
-    ['气管切开管可以拔掉吗？', '如果患者恢复了自主呼吸能力，经过医生评估后，是可以把管子拔掉的。大约六成的患者最终成功拔管。时间因人而异，短的三周左右，长的可能需要一两个月甚至更久。拔管后脖子上的小口通常会慢慢自己长好。'],
-    ['做了气管切开，如果没好转怎么办？', '您可以随时和医疗团队讨论，调整治疗方案。做了气管切开并不意味着必须无限期地维持，后续可以根据病情变化做出新的决定。'],
-    ['早做和晚做有什么区别？', '目前的研究显示，较早进行气管切开可能缩短 ICU 住院时间、减少肺部感染的机会，但对最终的恢复程度和存活率影响不大。具体到您的家人适合什么时候做，需要医生综合判断。'],
+    ['气管切开管可以拔掉吗？', '如果患者恢复了自主呼吸能力，经医生评估后是可以拔管的。研究显示，大约六成患者最终成功拔管。拔管时间因人而异，短的约三周，长的可能需要五六周甚至更久，主要取决于恢复情况和有无肺部感染等并发症。'],
+    ['拔管以后，脖子和外貌会恢复吗？还能用鼻子呼吸吗？', '拔管后，脖子上的小口通常会慢慢自己长好，多数只留下一个不明显的小疤痕。空气也会重新经过口鼻，患者可以恢复用鼻子和嘴呼吸，说话、闻气味等也会随之逐渐改善。'],
+    ['做了气管切开，如果没好转怎么办？', '做了气管切开并不意味着必须无限期地维持下去。如果一段时间后病情没有明显好转，您可以随时和医疗团队一起重新评估、讨论下一步——比如继续积极治疗，或把重点转向让患者尽量舒适。这是一个可以随病情变化重新商量的决定，而不是一旦做了就无法回头。'],
+    ['早做和晚做有什么区别？', '目前研究显示，较早进行气管切开可能缩短 ICU 住院时间、减少肺部感染的机会，但对最终的恢复程度和存活率影响不大。关于最佳时机，医学界目前还没有统一定论。具体到您的家人适合什么时候做，需要医生综合判断。'],
   ];
   const [open, setOpen] = useState(0);
   return (
@@ -326,9 +349,9 @@ function PageFAQ() {
       <p style={{marginTop:20}}>点击问题可展开答案。</p>
       {FAQ.map(([q, a], i) => (
         <div className="qa-card" key={i} style={{cursor:'pointer'}} onClick={() => setOpen(open === i ? -1 : i)}>
-          <div className="q" style={{display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom: open === i ? 10 : 0}}>
+          <div className="q" style={{display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:12, marginBottom: open === i ? 10 : 0}}>
             <span>Q{i + 1}. {q}</span>
-            <span style={{color:'var(--ink-muted)', fontSize:14, fontFamily:'sans-serif'}}>{open === i ? '−' : '+'}</span>
+            <span style={{color:'var(--ink-muted)', fontSize:14, fontFamily:'sans-serif', flexShrink:0}}>{open === i ? '−' : '+'}</span>
           </div>
           {open === i && <div style={{color:'var(--ink-soft)', fontSize:15, lineHeight:1.75, paddingTop:6, borderTop:'1px dashed var(--rule)'}}>{a}</div>}
         </div>
@@ -341,10 +364,12 @@ function PageFAQ() {
 function PageStories() {
   return (
     <div className="page">
-      <span className="eyebrow">第三部分 · 其他家庭是怎么想的</span>
+      <span className="eyebrow">第四部分 · 情感支持与资源</span>
       <h1 className="page-title">您不是一个人</h1>
-      <p style={{marginTop:20}}>面临类似决定的家属，每个人的感受和选择都不一样。以下是几位家属的<b>真实心声</b>，来自护理学研究者对他们的访谈记录。</p>
-      <p>这些不是建议，只是想让您知道：很多人都经历过和您一样的艰难时刻。</p>
+      <p style={{marginTop:20}}>面临类似决定的家属，每个人的感受和选择都不一样。下面是几位家属在护理研究访谈中说出的真实心声。</p>
+      <div className="callout amber">
+        请记住：这些只是他们个人的经历和感受，<b>不代表医学证据，也不代表您家人的情况，更不说明哪个选择更好</b>。把它们放在这里，只是想让您知道——很多人都经历过和您一样的艰难、犹豫和不确定，<b>您并不孤单</b>。
+      </div>
 
       <div className="story">
         <div className="story-tag">情境一 · 尊重他的意思</div>
@@ -377,7 +402,7 @@ function PageStories() {
       </div>
 
       <div className="callout" style={{marginTop:24, fontFamily:'"Noto Serif SC", serif', fontSize:16.5}}>
-        担心、纠结、害怕做错、压力大——这些感受都是正常的。不管您最终做出什么选择，只要是<b>认真想过</b>的，就是负责任的决定。
+        担心、纠结、害怕做错、压力大——这些感受都是正常的。不管您最终做出什么选择，只要是<b>认真想过</b>的，就是负责任的决定。每个家庭的处境都不一样，没有"标准答案"；<b>重要的不是别人怎么选，而是什么最适合您的家人</b>。
       </div>
     </div>
   );
@@ -387,11 +412,14 @@ function PageStories() {
 function PageRecall() {
   return (
     <div className="page">
-      <span className="eyebrow">第四部分 · 明确什么是重要的</span>
-      <h1 className="page-title">回忆您的家人</h1>
+      <span className="eyebrow">第三部分 · 明确什么是重要的</span>
+      <h1 className="page-title">想一想您的家人</h1>
       <p style={{marginTop:20}}>这一部分可能是最难的，但也是最重要的。我们希望帮助您站在家人的角度，想一想他可能会怎么选择。</p>
       <div className="callout">
-        在思考这些问题的时候，您可能会发现一件不容易的事：区分 <b>"他可能会怎么想"</b> 和 <b>"我自己希望怎样"</b>。这两个想法有时候会重合，有时候会冲突。两种想法都很重要，都值得被认真对待。
+        在思考这些问题的时候，您可能会发现一件不容易的事：区分 <b>"他可能会怎么想"</b> 和 <b>"我自己希望怎样"</b>。这两个想法有时候会重合，有时候会冲突。两种想法都很重要，都值得被认真对待。下面的问题会帮您分别想清楚这两个方面。
+      </div>
+      <div className="callout amber">
+        如果您的家人<b>还能用任何方式表达自己的想法</b>，请优先听取他本人的意愿；本部分适用于他已无法表达的情况。
       </div>
       <p>下面这些问题是帮您回忆和思考的，您可以在心里默想，也可以和其他家人聊聊，不需要写下答案。</p>
 
@@ -426,8 +454,7 @@ function PageRecall() {
         这很正常。大多数家庭平时不会谈论这些话题。您可以试试这几个办法：
         <ul style={{margin:'8px 0 0', paddingLeft:20}}>
           <li>回想他平时对生活的态度——是一个不怕吃苦、能忍的人，还是特别在意生活质量的人？</li>
-          <li>回想他对身边其他生过重病的亲友说过什么评价</li>
-          <li>问问其他家人，看他们有没有听他提起过相关的想法</li>
+          <li>问问其他家人，看他们有没有听他提起过相关的想法？</li>
         </ul>
         <p style={{margin:'8px 0 0'}}>即使最后还是不确定，也没关系。您对他的了解，比您以为的要多。</p>
       </div>
@@ -437,50 +464,33 @@ function PageRecall() {
 
 // ---------- Page 13: Quality of life ----------
 function PageQoL({ state, update }) {
-  const accept = [
-    '能认出家人',
-    '能用眼神、表情或简单动作与家人交流',
-    '能自己吃东西（不需要鼻饲管）',
-    '能坐起来或下床活动',
-    '能回家居住',
-    '只要活着就好，其他都可以接受',
+  const ROWS = [
+    '无法与家人交流，也认不出家人',
+    '无法自己经口吃饭，要长期靠鼻饲管进食',
+    '长期卧床、生活完全依赖他人照顾',
+    '长期依赖呼吸机维持生命',
+    '长期住在医院或护理机构，无法回家',
   ];
-  const avoid = [
-    '完全无法与家人交流',
-    '完全依赖他人照顾日常生活',
-    '长期住在医院或护理机构',
-    '需要持续依赖呼吸机维持生命',
-    '无法自己吃东西，需要长期使用鼻饲管',
-  ];
-  const toggle = (k, v) => {
-    const cur = state[k] || [];
-    update(k, cur.includes(v) ? cur.filter(x => x !== v) : [...cur, v]);
-  };
+  const OPTS = ['能接受', '说不好', '难以接受'];
+  const qol = state.qol || {};
+  const set = (row, v) => update('qol', { ...qol, [row]: v });
   return (
     <div className="page">
-      <span className="eyebrow">第四部分 · 明确什么是重要的</span>
+      <span className="eyebrow">第三部分 · 明确什么是重要的</span>
       <h1 className="page-title">关于生活质量的思考</h1>
-      <p style={{marginTop:20}}>这部分可能有些沉重，但它能帮您更清楚地理解您家人可能的想法。请根据您对他的了解来勾选。</p>
+      <p style={{marginTop:20}}>想一想，如果将来恢复有限，您的家人可能会长期处于某些状态。对他来说，哪些是可以接受的、哪些是难以接受的？请凭您对他的了解，为每一项勾选。<b>这没有对错，只是帮您看清他最看重什么。</b></p>
 
-      <h3 className="sub-title">对您的家人来说，以下哪些状态是<b style={{color:'var(--accent-ink)'}}>可以接受</b>的？</h3>
-      <p style={{fontSize:14, color:'var(--ink-muted)'}}>（可多选）</p>
-      <ul className="check-list">
-        {accept.map(t => (
-          <CheckItem key={t}
-            checked={(state.accept || []).includes(t)}
-            onToggle={() => toggle('accept', t)}>{t}</CheckItem>
-        ))}
-      </ul>
+      <p style={{fontSize:14, color:'var(--ink-muted)', marginTop:18, marginBottom:4}}>如果将来长期是这样的状态，对他来说——</p>
+      {ROWS.map(row => (
+        <div className="qa-card" key={row}>
+          <div className="q">{row}</div>
+          <Radio value={qol[row]} options={OPTS} onChange={v => set(row, v)} />
+        </div>
+      ))}
 
-      <h3 className="sub-title">对您的家人来说，以下哪些状态是<b style={{color:'var(--rose)'}}>难以接受</b>的？</h3>
-      <p style={{fontSize:14, color:'var(--ink-muted)'}}>（可多选）</p>
-      <ul className="check-list">
-        {avoid.map(t => (
-          <CheckItem key={t} dim
-            checked={(state.avoid || []).includes(t)}
-            onToggle={() => toggle('avoid', t)}>{t}</CheckItem>
-        ))}
-      </ul>
+      <div className="callout">
+        看看您勾<b>"难以接受"</b>的那几项——这些可能是他最在意的<b>底线</b>，也是您和医生沟通时值得说出来的。
+      </div>
 
       <h3 className="sub-title">在延长生命与生活质量之间，您认为家人会更看重：</h3>
       <Radio value={state.tradeoff} options={[
@@ -499,14 +509,27 @@ function PageFamily({ state, update }) {
     { k:'f1', label:'如果家人需要长期照护，您的家庭能承担照护任务吗？', opts:['能够承担','有困难但可克服','困难较大','无法承担','不确定'] },
     { k:'f2', label:'您的家庭对治疗和照护费用的承受能力如何？', opts:['可以承受','有压力但可承受','压力较大','难以承受','不确定'] },
     { k:'f3', label:'家庭主要成员对这个决定的看法一致吗？', opts:['一致','基本一致','有些分歧','分歧较大'] },
+    { k:'f4', label:'家里或亲友中，有没有人能在照护或情感上帮上忙？', opts:['有不少人能帮','有一些人能帮','帮手比较有限','几乎只能靠我自己','不确定'] },
   ];
   return (
     <div className="page">
-      <span className="eyebrow">第四部分 · 明确什么是重要的</span>
+      <span className="eyebrow">第三部分 · 明确什么是重要的</span>
       <h1 className="page-title">家庭的实际情况</h1>
-      <p style={{marginTop:20}}>做决定时，除了考虑患者的意愿，也需要考虑家庭的实际情况。这不是"金钱和生命哪个重要"的问题——而是要确保您做出的决定是<b>可以长期坚持</b>的，是对患者真正好的。</p>
+      <p style={{marginTop:20}}>做决定时，除了考虑患者的意愿，也需要考虑家庭的实际情况。这不是"金钱和生命哪个更重要"的问题——而是要确保您做出的决定是<b>可以长期坚持</b>的，是对患者真正好的。</p>
 
-      {QS.map(q => (
+      {QS.slice(0,3).map(q => (
+        <div className="qa-card" key={q.k}>
+          <div className="q">{q.label}</div>
+          <Radio value={state[q.k]} options={q.opts} onChange={v => update(q.k, v)} />
+        </div>
+      ))}
+
+      <div className="qa-card">
+        <div className="q">如果选择长期照护，主要照护者可能是谁？</div>
+        <p style={{margin:0, fontSize:14, color:'var(--ink-muted)'}}>（可以在心里想一想）</p>
+      </div>
+
+      {QS.slice(3).map(q => (
         <div className="qa-card" key={q.k}>
           <div className="q">{q.label}</div>
           <Radio value={state[q.k]} options={q.opts} onChange={v => update(q.k, v)} />
@@ -515,7 +538,7 @@ function PageFamily({ state, update }) {
 
       <div className="callout amber">
         <div className="callout-title">温馨提示</div>
-        如果家庭经济或照护能力有困难，并不意味着您是"不孝"或"不爱家人"。勉强做出无法长期维持的决定，反而可能让患者和整个家庭都陷入困境。<b>诚实地面对现实，是负责任的表现。</b>
+        如果家庭经济或照护能力有困难，并不意味着您是"不孝顺"或"不爱家人"。勉强做出无法长期维持的决定，反而可能让患者和整个家庭都陷入困境。<b>诚实地面对现实，是负责任的表现。</b>
       </div>
 
       {(state.f3 === '有些分歧' || state.f3 === '分歧较大') && (
@@ -526,6 +549,7 @@ function PageFamily({ state, update }) {
             <li>请医生或护士组织一次<b>家庭会议</b>，让所有主要家庭成员一起听听病情介绍，当面问问题。很多分歧是因为大家掌握的信息不一样。</li>
             <li>试着把讨论的焦点从"我觉得应该怎么做"转到<b>"他会希望怎么做"</b>——这样更容易找到共同点。</li>
             <li>如果实在无法达成一致，可以先做大家都能接受的最小决定（比如"先观察几天再说"），不急着做最终选择。</li>
+            <li>如果您觉得身边帮手不多、压力主要在自己身上，请翻到后面的<b>"情感支持与资源"</b>部分，也可以请医生护士帮您联系医院的社工或支持资源。</li>
             <li>最终需要有一个人签字。如果那个人是您，请相信：只要您是基于对患者的了解、认真考虑过的，就是负责任的决定。</li>
           </ul>
         </div>
@@ -534,7 +558,7 @@ function PageFamily({ state, update }) {
   );
 }
 
-// ---------- Page 15: Emotions ----------
+// ---------- Page 15: Emotions + team ----------
 function PageEmotions() {
   const FEELS = [
     ['焦虑、担心', '不知道该怎么决定，担心做错选择'],
@@ -545,9 +569,17 @@ function PageEmotions() {
     ['脑子转不动了', '已经听了太多信息、做了太多选择，感觉什么都不想再想了'],
     ['麻木、不真实感', '有时候觉得这一切不像是真的'],
   ];
+  const TEAM = [
+    ['医生', '解释病情、预后、各个选项和风险'],
+    ['护士', '日常照护、护理操作指导、随时解答疑问'],
+    ['社工', '协助了解医保、救助、照护机构等资源'],
+    ['康复治疗师（呼吸/吞咽/肢体）', '评估并帮助患者康复，带管期间也可进行'],
+    ['言语治疗师', '帮助患者恢复发声与沟通'],
+    ['心理咨询师 / 心理科', '帮助您和家人调适情绪'],
+  ];
   return (
     <div className="page">
-      <span className="eyebrow">第五部分 · 情感支持与资源</span>
+      <span className="eyebrow">第四部分 · 情感支持与资源</span>
       <h1 className="page-title">您现在可能有的感受</h1>
       <p style={{marginTop:20}}>作为代理决策者，您可能正在经历各种复杂的情绪。请相信，这些感受都是正常的：</p>
 
@@ -561,18 +593,28 @@ function PageEmotions() {
       </div>
 
       <div className="callout" style={{fontFamily:'"Noto Serif SC", serif', fontSize:16.5, marginTop:22}}>
-        请记住：您不是在决定家人的生死。您是在<b>帮助他表达他自己可能的意愿</b>。无论您最终做出什么决定，只要是基于对他的了解和爱，就是负责任的决定。
+        请记住：无论您最终做出什么决定，只要是基于对他的<b>了解和爱</b>，就是负责任的决定。
       </div>
 
       <h2 className="section-title">如果您需要帮助</h2>
+      <p>请记住，您身边有一个<b>团队</b>陪您做这个决定，您不是孤军奋战。除了主管医生，还有很多人可以帮到您和家人——您可以随时请护士帮您联系其中任何一位：</p>
+
+      {TEAM.map(([who, help]) => (
+        <div className="qa-card" key={who} style={{display:'flex', gap:16, alignItems:'baseline'}}>
+          <div className="q" style={{margin:0, flexShrink:0, minWidth:118, color:'var(--accent-ink)'}}>{who}</div>
+          <p style={{margin:0, fontSize:15, color:'var(--ink-soft)'}}>{help}</p>
+        </div>
+      ))}
+
+      <h3 className="sub-title">遇到这些情况，您可以这样做：</h3>
       <div className="qa-card"><div className="q">需要更多时间考虑</div>
         <p style={{margin:0, fontSize:15, color:'var(--ink-soft)'}}>告诉医生您需要多想想。问清楚还有多少时间可以考虑，不要勉强自己马上做决定。</p></div>
       <div className="qa-card"><div className="q">家人意见不一致</div>
-        <p style={{margin:0, fontSize:15, color:'var(--ink-soft)'}}>可以请医生或护士组织一次家庭会议，让大家一起听听病情介绍，有疑问当面问，一起讨论。</p></div>
+        <p style={{margin:0, fontSize:15, color:'var(--ink-soft)'}}>可以请医生或护士组织一次家庭会议，让大家一起听听病情介绍，有疑问当面问，一起讨论（详见第四部分）。</p></div>
       <div className="qa-card"><div className="q">想听听其他医生的意见</div>
         <p style={{margin:0, fontSize:15, color:'var(--ink-soft)'}}>这是您的权利。可以请医院安排会诊，或者咨询其他医院的专家。</p></div>
       <div className="qa-card"><div className="q">情绪快撑不住了</div>
-        <p style={{margin:0, fontSize:15, color:'var(--ink-soft)'}}>请告诉护士或医生。医院通常有社工或心理咨询师可以提供帮助。<b>照顾好自己，才能更好地帮助家人。</b></p></div>
+        <p style={{margin:0, fontSize:15, color:'var(--ink-soft)'}}>请把这种状态告诉护士或医生，不用等到真的撑不住了才开口。医院通常有社工、心理咨询师或心理科，可以为您提供帮助。<b>照顾好自己并不是自私，只有您先稳住了，才能更好地陪伴和帮助家人。</b></p></div>
       <div className="qa-card"><div className="q">觉得信息太多，什么都决定不了</div>
         <p style={{margin:0, fontSize:15, color:'var(--ink-soft)'}}>这说明您的大脑需要休息，不是您"不负责任"。先不做决定，休息一天再想。也可以请护士帮您把最关键的两三个问题列出来，一次只想一个。</p></div>
     </div>
@@ -583,7 +625,7 @@ function PageEmotions() {
 function PageResources() {
   return (
     <div className="page">
-      <span className="eyebrow">第五部分 · 情感支持与资源</span>
+      <span className="eyebrow">第四部分 · 情感支持与资源</span>
       <h1 className="page-title">照顾好自己，用上可用的资源</h1>
 
       <h3 className="sub-title">在照顾家人的同时，请不要忘记照顾自己</h3>
@@ -631,7 +673,7 @@ function PageResources() {
 function PageLean({ state, update }) {
   return (
     <div className="page">
-      <span className="eyebrow">第六部分 · 准备做出决定</span>
+      <span className="eyebrow">第五部分 · 准备做出决定</span>
       <h1 className="page-title">此刻，您心里在想什么？</h1>
       <p style={{marginTop:20}}>下面这个问题<b>没有对错</b>，只是帮您看清自己现在内心的想法。请点击最接近您想法的位置。</p>
 
@@ -694,7 +736,7 @@ function PageReady({ state, update }) {
   ];
   return (
     <div className="page">
-      <span className="eyebrow">第六部分 · 准备做出决定</span>
+      <span className="eyebrow">第五部分 · 准备做出决定</span>
       <h1 className="page-title">您准备好了吗？</h1>
       <p style={{marginTop:20}}>在与医疗团队做最后沟通之前，您可以用下面这个清单检查一下自己的准备情况：</p>
 
@@ -716,7 +758,7 @@ function PageReady({ state, update }) {
 function PageAfter() {
   return (
     <div className="page">
-      <span className="eyebrow">第六部分 · 准备做出决定</span>
+      <span className="eyebrow">第五部分 · 准备做出决定</span>
       <h1 className="page-title">做出决定之后</h1>
 
       <div className="decide-card" style={{borderColor:'var(--accent)'}}>
@@ -726,6 +768,17 @@ function PageAfter() {
           <li>您需要签署知情同意书</li>
           <li>术后医疗团队会继续观察和治疗</li>
           <li>出院前护士会教您气管切开的日常护理方法</li>
+        </ul>
+      </div>
+
+      <div className="decide-card" style={{borderColor:'var(--amber)'}}>
+        <h4 style={{color:'#8a6320'}}>如果您决定进行气管切开并设定观察期</h4>
+        <ul>
+          <li>医生会安排气管切开的时间，并与您一起商定观察期的具体时长（具体时长由患者病情决定，由您与医生充分沟通后共同确定）</li>
+          <li>您需要签署知情同意书</li>
+          <li>在观察期内，医疗团队会继续积极治疗和康复，并定期向您反馈患者的病情变化</li>
+          <li>观察期结束时，医疗团队会与您一起重新评估：如果病情明显好转，会制定下一步康复和拔管计划；如果没有明显好转，会重新与您讨论后续的照护方向</li>
+          <li>这个过程中您随时可以提出疑问，调整决定</li>
         </ul>
       </div>
 
@@ -740,18 +793,32 @@ function PageAfter() {
 
       <div className="callout amber" style={{marginTop:20}}>
         <div className="callout-title">重要提醒</div>
-        医疗决策<b>不是一成不变的</b>。如果以后患者的病情发生变化，或者您有了新的想法，随时可以和医疗团队沟通，重新评估和调整治疗方案。
+        医疗决策<b>不是一成不变的</b>。如果以后患者的病情发生变化，或者您有了新的想法，随时可以和医疗团队沟通，重新评估和调整治疗方案。<b>需要说明的是，这里说的"可以调整"，是指在与医疗团队充分沟通、并根据患者当时的病情来进行的，并不意味着任何决定都能随时推翻</b>——比如已经实施的手术本身无法撤销。但后续的治疗方向和照护方案，仍然可以根据病情变化和您的意愿，与医疗团队一起再做商量。
       </div>
 
-      <hr className="rule"/>
-      <h2 className="section-title">写在最后</h2>
-      <p className="lead">亲爱的家属：</p>
+    </div>
+  );
+}
+
+// ---------- Page 21: Closing letter ----------
+function PageClosing() {
+  return (
+    <div className="page">
+      <span className="eyebrow">第五部分 · 准备做出决定</span>
+      <h1 className="page-title">写在最后</h1>
+      <p className="lead" style={{marginTop:24}}>亲爱的家属：</p>
       <p>感谢您读完这份手册。我们知道，这段时间对您来说非常艰难。</p>
       <p>无论您最终做出什么决定，只要是基于对家人的了解、基于您对他的爱、基于您认真的思考——<b>那就是一个好的决定</b>。</p>
+      <p>还有一件事想告诉您：如果患者的病情发生了变化，或者您有了新的想法，随时可以和医疗团队重新讨论。做决定不是签一份永远不能改的合同，而是在当下做出最好的选择，以后根据情况随时可以再商量。</p>
       <p>没有人能预知未来，我们只能在当下做出我们认为最好的选择。</p>
-      <p style={{fontFamily:'"Noto Serif SC", serif', fontSize:18, color:'var(--ink)', marginTop:24}}>
-        请相信自己，也请照顾好自己。<br/>
-        您不是一个人在面对这一切。
+      <div className="callout" style={{marginTop:28, textAlign:'center'}}>
+        <p style={{fontFamily:'"Noto Serif SC", serif', fontSize:19, color:'var(--accent-ink)', margin:0, lineHeight:1.9}}>
+          请相信自己，也请照顾好自己。<br/>
+          您不是一个人在面对这一切。
+        </p>
+      </div>
+      <p style={{color:'var(--ink-soft)', fontSize:15, marginTop:20, textAlign:'center'}}>
+        医疗团队、您的家人、您的朋友，都会陪伴您走过这段路。
       </p>
       <p style={{color:'var(--ink-muted)', fontSize:14, marginTop:30, textAlign:'center', fontStyle:'italic'}}>
         祝愿您的家人早日康复，<br/>也祝愿您平安、坚强。
@@ -764,6 +831,6 @@ Object.assign(window, {
   PageCover, PageHowToUse, PageWhy, PageYourRole, PageSelfCheck,
   PageStroke, PageWhatIsTrach, PageOptions, PageProsCons, PageFAQ,
   PageStories, PageRecall, PageQoL, PageFamily,
-  PageEmotions, PageResources, PageLean, PageReady, PageAfter,
+  PageEmotions, PageResources, PageLean, PageReady, PageAfter, PageClosing,
   Radio, CheckItem,
 });

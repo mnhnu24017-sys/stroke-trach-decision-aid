@@ -10,6 +10,7 @@ const CHECKLIST = [
       '他的呼吸功能怎么样？能脱离呼吸机吗？',
       '除了呼吸问题，还有哪些需要担心的情况？',
       '整体来看，他的病情是在好转、稳定还是恶化？',
+      '医生是根据哪些方面来判断他恢复的可能性的？',
     ],
   },
   {
@@ -18,8 +19,8 @@ const CHECKLIST = [
     items: [
       '为什么医生建议做气管切开？',
       '如果不做气管切开，还有别的办法吗？',
-      '手术有什么风险？发生的可能性大吗？',
-      '手术由谁来做？在哪里做？',
+      '气管切开有什么风险？这些风险发生的可能性大吗？',
+      '气管切开手术由谁来做？在哪里做？',
       '早一点做和晚一点做有什么区别？',
       '我们还有多少时间来考虑这个决定？',
     ],
@@ -65,7 +66,6 @@ const CHECKLIST = [
     items: [
       '如果不做气管切开，接下来会怎样？',
       '不做的话，患者还能维持多长时间？',
-      '如果选择不做，怎样让患者尽量舒适、不受罪？',
       '这个决定做出后，还可以改变主意吗？',
       '如果选择不做，医疗团队会提供哪些照护来让他舒适、减轻痛苦？',
       '选择不做，是不是意味着放弃所有治疗？还是只是不做气管切开，其他治疗继续？',
@@ -125,13 +125,23 @@ function PageChecklist({ state, update }) {
         <div className="print-sub">脑卒中气管切开代理决策辅助工具</div>
       </div>
 
-      <span className="eyebrow print-hide">第六部分 · 准备做出决定</span>
+      <span className="eyebrow print-hide">第五部分 · 准备做出决定</span>
       <h1 className="page-title print-hide">与医疗团队沟通清单</h1>
       <p style={{marginTop:20}} className="print-hide">这份清单可以帮您更高效地和医生沟通。标记完成后可以<b>打印一份带到医院</b>。</p>
 
       <div className="mark-hint print-hide">
-        点击问题可循环切换标记：<b>空白</b> → <b>✓ 已了解</b> → <b>? 重点询问</b> → 空白。<br/>
-        打印后可以在医院里当场勾画记录。
+        逐项判断并标记：已经了解、不需要再问的，标 <b>✓</b>；需要重点询问的，标 <b>?</b>；暂时没想法的，留空即可。<br/>
+        点击问题可循环切换：<b>空白</b> → <b>✓ 已了解</b> → <b>? 重点询问</b> → 空白。打印后也可在医院当场勾画。
+      </div>
+
+      <div className="callout print-show-only" style={{display:'none'}}>
+        标记说明：✓ 已了解，不需再问　·　? 需要重点询问　·　留空 暂时没想法
+      </div>
+
+      <div className="callout amber print-hide">
+        <div className="callout-title">不知道怎么开口？可以这样和医生说</div>
+        "医生，我想多了解一些情况，好帮家人做这个决定。我列了一些问题，有几个特别想请您解释一下……"<br/>
+        然后把您打了 <b>?</b> 的问题，一项一项地问医生就可以了。
       </div>
 
       <div className="print-actions print-hide">

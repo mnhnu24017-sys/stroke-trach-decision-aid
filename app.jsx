@@ -13,16 +13,17 @@ const PAGES = [
   { key:'options',  part:'第二部分',  title:'您面临的三个选择',         C: window.PageOptions },
   { key:'proscons', part:'第二部分',  title:'好处与风险',              C: window.PageProsCons },
   { key:'faq',      part:'第二部分',  title:'您可能想知道的问题',       C: window.PageFAQ },
-  { key:'stories',  part:'第三部分',  title:'其他家庭是怎么想的',       C: window.PageStories },
-  { key:'recall',   part:'第四部分',  title:'回忆您的家人',            C: window.PageRecall },
-  { key:'qol',      part:'第四部分',  title:'关于生活质量的思考',       C: window.PageQoL },
-  { key:'family',   part:'第四部分',  title:'家庭的实际情况',           C: window.PageFamily },
-  { key:'emotion',  part:'第五部分',  title:'您现在可能有的感受',       C: window.PageEmotions },
-  { key:'resource', part:'第五部分',  title:'照顾好自己 · 资源',        C: window.PageResources },
-  { key:'lean',     part:'第六部分',  title:'此刻，您心里在想什么',     C: window.PageLean },
-  { key:'ready',    part:'第六部分',  title:'您准备好了吗',            C: window.PageReady },
-  { key:'checklist',part:'第六部分',  title:'与医疗团队沟通清单',       C: window.PageChecklist },
-  { key:'after',    part:'第六部分',  title:'做出决定之后',            C: window.PageAfter },
+  { key:'recall',   part:'第三部分',  title:'想一想您的家人',            C: window.PageRecall },
+  { key:'qol',      part:'第三部分',  title:'关于生活质量的思考',       C: window.PageQoL },
+  { key:'family',   part:'第三部分',  title:'家庭的实际情况',           C: window.PageFamily },
+  { key:'emotion',  part:'第四部分',  title:'您现在可能有的感受',       C: window.PageEmotions },
+  { key:'stories',  part:'第四部分',  title:'其他家庭是怎么想的',       C: window.PageStories },
+  { key:'resource', part:'第四部分',  title:'照顾好自己 · 资源',        C: window.PageResources },
+  { key:'lean',     part:'第五部分',  title:'此刻，您心里在想什么',     C: window.PageLean },
+  { key:'ready',    part:'第五部分',  title:'您准备好了吗',            C: window.PageReady },
+  { key:'checklist',part:'第五部分',  title:'与医疗团队沟通清单',       C: window.PageChecklist },
+  { key:'after',    part:'第五部分',  title:'做出决定之后',            C: window.PageAfter },
+  { key:'closing',  part:'第五部分',  title:'写在最后',                C: window.PageClosing },
 ];
 
 // Group TOC by section
@@ -30,10 +31,9 @@ const TOC = [
   { label:'开始',      desc:'欢迎 · 使用说明',            pages:[0,1] },
   { label:'第一部分',  desc:'认识您的处境',               pages:[2,3,4] },
   { label:'第二部分',  desc:'了解气管切开',               pages:[5,6,7,8,9] },
-  { label:'第三部分',  desc:'其他家庭是怎么想的',         pages:[10] },
-  { label:'第四部分',  desc:'明确什么是重要的',           pages:[11,12,13] },
-  { label:'第五部分',  desc:'情感支持与资源',             pages:[14,15] },
-  { label:'第六部分',  desc:'准备做出决定 · 打印清单',     pages:[16,17,18,19] },
+  { label:'第三部分',  desc:'明确什么是重要的',           pages:[10,11,12] },
+  { label:'第四部分',  desc:'情感支持与资源',             pages:[13,14,15] },
+  { label:'第五部分',  desc:'准备做出决定 · 打印清单',     pages:[16,17,18,19,20] },
 ];
 
 const STORAGE_KEY = 'ptda_state_v1';
